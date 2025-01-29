@@ -1,5 +1,10 @@
-version: '3'
 services:
+  mdrss:
+    build: .
+    ports:
+      - '127.0.0.1:3001:3000'
+    environment:
+      - DB_URL=postgresql://barman:abcdef@postgres:5432/mdrss
   postgres:
     image: postgres:16
     ports:
@@ -7,3 +12,4 @@ services:
     environment:
       - POSTGRES_USER=barman
       - POSTGRES_PASSWORD=abcdef
+      - POSTGRES_DB=mdrss
