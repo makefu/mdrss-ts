@@ -6,7 +6,7 @@ RUN bun i
 RUN bun fbuild
 ENV NODE_ENV=production
 ENV DB_URL=postgresql://barman:abcdef@127.0.0.1:5472/mdrss
-#USER bun
+USER bun
 EXPOSE 3001/tcp
 # run the app
 ENTRYPOINT "/usr/src/app/start.sh"
